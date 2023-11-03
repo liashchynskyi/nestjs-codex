@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/mongoose": "^6.5.0-next.3",
+    "mongoose": "^6.10.4",
+    "nestjs-cls": "^3.6.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "name": "nestjs-codex",
+  "author": "Petro Liashchynskyi",
+  "homepage": "https://github.com/liashchynskyi/nestjs-codex",
+  "module": "dist/nestjs-codex.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/nestjs-codex.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/nestjs-codex.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/mongoose": "^6.5.0-next.3",
+    "@size-limit/preset-small-lib": "^10.0.2",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.3",
+    "install-peers": "^1.0.4",
+    "mongoose": "^6.10.4",
+    "nestjs-cls": "^3.6.0",
+    "prettier": "^3.0.3",
+    "size-limit": "^10.0.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  }
+}
