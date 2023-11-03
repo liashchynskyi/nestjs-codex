@@ -120,7 +120,7 @@ export function CrudService<T extends Document>(entity: Type<BaseEntity>): Type<
     async create(data: MongooseAnyKeys<T>[] | MongooseAnyKeys<T>): Promise<T[] | T> {
       const session = this.cls.get('mongoSession');
 
-      const [doc] = await this.databaseModel.create([data], { session });
+      const [doc] = await this.databaseModel.create(Array.isArray(data) ? data : [data], { session });
 
       return doc;
     }
