@@ -58,12 +58,31 @@ CrudModule.forRoot();
 
 For example, let's create a `UserService` that will handle CRUD operations for `User` model.
 
+Define `Mongoose` models.
+
+```typescript
+import { Document } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+
+export type UserDocument = UserEntity & Document;
+
+@Schema({ timestamps: true, autoIndex: true, collection: 'users' })
+export class UserEntity {
+  @Prop({ required: true })
+  name: string;
+}
+
+export const UserSchema = SchemaFactory.createForClass(UserEntity);
+```
+
+Use `CrudService` as a base class for your service.
+
 ```typescript
 import { Injectable } from '@nestjs/common';
 import { CrudService } from '@liashchynskyi/nestjs-codex';
 
 @Injectable()
-export class UserService extends CrudService<User> {
+export class UserService extends CrudService<UserDocument>(UserEntity) {
   constructor() {
     super();
   }
@@ -89,7 +108,7 @@ import { Injectable } from '@nestjs/common';
 import { CrudService } from '@liashchynskyi/nestjs-codex';
 
 @Injectable()
-export class UserService extends CrudService<User> {
+export class UserService extends CrudService<UserDocument>(UserEntity) {
   constructor() {
     super();
   }
@@ -113,7 +132,7 @@ import { CrudService } from '@liashchynskyi/nestjs-codex';
 import { TransactionService } from '@liashchynskyi/nestjs-codex';
 
 @Injectable()
-export class UserService extends CrudService<User> {
+export class UserService extends CrudService<UserDocument>(UserEntity) {
   constructor(private readonly transactionService: TransactionService) {
     super();
   }
