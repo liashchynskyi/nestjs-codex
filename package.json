@@ -19,11 +19,13 @@
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
+  "dependencies": {
+    "nestjs-cls": "^3.6.0"
+  },
   "peerDependencies": {
     "@nestjs/common": "^8.0.0",
     "@nestjs/mongoose": "^6.5.0-next.3",
-    "mongoose": "^6.10.4",
-    "nestjs-cls": "^3.6.0"
+    "mongoose": "^6.10.4"
   },
   "husky": {
     "hooks": {
@@ -68,7 +70,6 @@
     "husky": "^8.0.3",
     "install-peers": "^1.0.4",
     "mongoose": "^6.10.4",
-    "nestjs-cls": "^3.6.0",
     "prettier": "^3.0.3",
     "size-limit": "^10.0.2",
     "tsdx": "^0.14.1",

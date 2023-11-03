@@ -1,4 +1,6 @@
 import { CrudService } from './services/crud.service';
+import { TransactionService } from './services/transaction.service';
 import { CrudSignature } from './misc/types';
+import { CrudModule } from './crud.module';
 
-export { CrudService, CrudSignature };
+export { CrudModule, CrudService, CrudSignature, TransactionService };
