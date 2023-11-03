@@ -32,8 +32,8 @@ import { ClsService } from 'nestjs-cls';
 
 export function CrudService<T extends Document>(entity: Type<BaseEntity>): Type<CrudSignature<T>> {
   class CrudMixin implements CrudSignature<T> {
-    @InjectModel(entity.name) private readonly databaseModel: Model<T>;
-    @Inject(ClsService) private readonly cls: ClsService;
+    @InjectModel(entity.name) private readonly databaseModel!: Model<T>;
+    @Inject(ClsService) private readonly cls!: ClsService;
 
     async findOne(filter: FilterOrId<T>, options?: FindOneOptions & WithError): Promise<T>;
     async findOne(filter: FilterOrId<T>, options?: FindOneOptions & WithoutError): Promise<T | null>;
