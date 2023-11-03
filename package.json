@@ -1,5 +1,4 @@
 {
-  "private": false,
   "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -39,6 +38,13 @@
   "name": "@liashchynskyi/nestjs-codex",
   "author": "Petro Liashchynskyi",
   "homepage": "https://github.com/liashchynskyi/nestjs-codex",
+  "keywords": [
+    "nestjs",
+    "crud",
+    "mongoose",
+    "transactions",
+    "async"
+  ],
   "module": "dist/nestjs-codex.esm.js",
   "size-limit": [
     {
