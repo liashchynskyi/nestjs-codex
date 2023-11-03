@@ -35,7 +35,7 @@
     "singleQuote": true,
     "trailingComma": "all"
   },
-  "name": "nestjs-codex",
+  "name": "@liashchynskyi/nestjs-codex",
   "author": "Petro Liashchynskyi",
   "homepage": "https://github.com/liashchynskyi/nestjs-codex",
   "module": "dist/nestjs-codex.esm.js",
