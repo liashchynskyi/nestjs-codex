@@ -25,9 +25,9 @@ npm install @liashchynskyi/nestjs-codex --save
 
 Make sure you have these installed in your NestJS project:
 
-- `"@nestjs/common": "^8.0.0"`
-- `"@nestjs/mongoose": "^6.5.0-next.3"`
-- `"mongoose": "^6.10.4"`
+- `"@nestjs/common": ">=8.0.0"`
+- `"@nestjs/mongoose": ">=6.5.0-next.3"`
+- `"mongoose": ">=6.10.4"`
 
 ## Usage
 
