@@ -8,6 +8,7 @@ import {
   AnyKeys as MongooseAnyKeys,
   QueryWithHelpers,
   AggregateOptions,
+  isValidObjectId,
 } from 'mongoose';
 
 import {
@@ -42,7 +43,7 @@ export function CrudService<T extends Document>(entity: Type<BaseEntity>): Type<
 
       let mongooseQuery: QueryWithHelpers<HydratedDocument<T> | null, HydratedDocument<T>>;
 
-      if (Types.ObjectId.isValid(filter as Types.ObjectId)) {
+      if (isValidObjectId(filter as Types.ObjectId)) {
         mongooseQuery = this.databaseModel.findOne({ _id: filter as Types.ObjectId }, null, options).session(session);
       } else {
         mongooseQuery = this.databaseModel.findOne(filter as FilterQuery<T>, null, options).session(session);
@@ -143,7 +144,7 @@ export function CrudService<T extends Document>(entity: Type<BaseEntity>): Type<
 
       const session = this.cls.get('mongoSession');
 
-      if (Types.ObjectId.isValid(filter as Types.ObjectId)) {
+      if (isValidObjectId(filter as Types.ObjectId)) {
         updatedDocument = await this.databaseModel.findOneAndUpdate(
           { _id: filter as Types.ObjectId },
           data,
@@ -204,7 +205,7 @@ export function CrudService<T extends Document>(entity: Type<BaseEntity>): Type<
       let targetDocument: T | null;
       const session = this.cls.get('mongoSession');
 
-      if (Types.ObjectId.isValid(filter as Types.ObjectId)) {
+      if (isValidObjectId(filter as Types.ObjectId)) {
         targetDocument = await this.databaseModel.findOne({ _id: filter as Types.ObjectId }, undefined, { session });
       } else {
         targetDocument = await this.databaseModel.findOne(filter as FilterQuery<T>, undefined, { session });
